@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 
 // Mount routes
 app.use('/api/v1/users', require('./routes/user'));
+app.use('/api/v1/excel', require('./routes/excel'));
 app.use('/api/v1/uploads', require('./routes/upload'));
 
 app.all('*', (req, res, next) => next(new AppError('Not Found', 404)));

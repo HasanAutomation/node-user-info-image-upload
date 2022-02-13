@@ -18,7 +18,9 @@ class FileService {
   }
 
   static checkFileType(file, cb) {
-    const filesTypes = /jpg|jpeg|png/;
+    const filesTypes =
+      /jpg|jpeg|png|csv|xlsx|vnd.openxmlformats-officedocument.spreadsheetml.sheet/;
+    console.log(file);
 
     const extname = filesTypes.test(
       path.extname(file.originalname).toLowerCase()

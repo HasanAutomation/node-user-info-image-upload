@@ -13,8 +13,6 @@ exports.createUser = catchAsync(async (req, res, next) => {
   const userExists = await userService.findUser({ email });
   if (userExists) return next(new AppError('Email is taken', 400));
 
-  //   Upload profile picture
-
   const user = await userService.createUser({
     name,
     email,
@@ -34,7 +32,6 @@ exports.createUser = catchAsync(async (req, res, next) => {
 });
 
 exports.modifyUser = catchAsync(async (req, res, next) => {
-  console.log(req.body.email);
   const userExists = await userService.findUser({ email: req.body.email });
   if (!userExists) return next(new AppError('User does not exist', 404));
 
